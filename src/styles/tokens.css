@@ -1,0 +1,251 @@
+/* ============================================================
+   Spine Design System — Web tokens (Light theme)
+   ============================================================
+   These are EDUCATED DEFAULTS based on:
+     - Marrow blue #62C8DF as primary-50 (anchor from your memory)
+     - Pace curve colours: green #82C42D, amber/yellow #FFCC00, red #D56F62
+     - Neutral ramp derived from Material tonal scale, anchored to
+       #FFFFFF (n-00) and #212121 (your existing text-dark)
+     - Surface variants reverse-engineered from Spine doc descriptions
+
+   Anything marked TBD is something the Spine doc didn't disclose
+   and needs Kush to confirm/correct.
+
+   Naming follows Spine exactly so tokens read 1:1 with Figma.
+   ============================================================ */
+
+:root {
+  /* ----------------------------------------------------------
+     PRIMARY RAMP
+     primary-50 is the anchor (Marrow blue). Other stops are
+     stepped tints/shades. Spine called out #3DB39E next to
+     primary-40 in the doc — flagging this for review since it's
+     teal-green, not a tint of #62C8DF. Possibly intentional?
+     ---------------------------------------------------------- */
+  --color-primary-5:  #EAF7FB;   /* lightest tint */
+  --color-primary-10: #D5EFF7;
+  --color-primary-20: #ABDFEF;
+  --color-primary-30: #82CFE7;
+  --color-primary-40: #3DB39E;   /* Spine-declared, looks teal */
+  --color-primary-50: #62C8DF;   /* ANCHOR — Marrow blue */
+  --color-primary-60: #3DB1CD;
+  --color-primary-70: #2A8BA0;
+  --color-primary-85: #1A5A6C;
+  --color-primary-90: #0F3D4A;
+
+  /* ----------------------------------------------------------
+     NEUTRAL RAMP (n-00 to n-95)
+     n-00 = pure white, n-95 = near-black.
+     Used for surfaces, text, dividers, outlines.
+     ---------------------------------------------------------- */
+  --color-n-00: #FFFFFF;
+  --color-n-05: #FAFAFA;
+  --color-n-10: #F5F5F5;
+  --color-n-15: #ECECEC;
+  --color-n-30: #D5D5D5;
+  --color-n-40: #BDBDBD;
+  --color-n-50: #9E9E9E;
+  --color-n-60: #757575;
+  --color-n-70: #5C5C5C;
+  --color-n-80: #424242;
+  --color-n-95: #212121;
+
+  /* ----------------------------------------------------------
+     SEMANTIC RAMPS
+     Green / Yellow / Sepia / Red.
+     Greens anchored to pace curve #82C42D as green-02.
+     Red anchored to pace curve #D56F62.
+     ---------------------------------------------------------- */
+  --color-green-01: #EDF7D9;
+  --color-green-02: #82C42D;   /* pace curve green */
+  --color-green-03: #5A9620;
+  --color-green-04: #43A047;   /* legacy Marrow success */
+
+  --color-yellow:    #FFCC00;  /* pace curve amber */
+  --color-yellow-02: #FFF4CC;
+
+  --color-sepia-05:  #FAF3E8;
+  --color-sepia-80:  #6B4F2A;
+
+  --color-red:       #D56F62;  /* pace curve red */
+  --color-red-soft:  #FBE5E2;
+
+  /* Links — typically a deeper, more saturated blue than primary */
+  --color-link: #1A73E8;   /* TBD — common default; confirm */
+
+  /* ----------------------------------------------------------
+     SEMANTIC TOKENS (the layer the app actually uses)
+     These map Spine's named slots to the ramps above.
+     ---------------------------------------------------------- */
+
+  /* Brand */
+  --color-bg-primary:        var(--color-primary-50);
+  --color-on-primary:        var(--color-n-00);
+  --color-bg-primary-varient: var(--color-primary-70);
+
+  /* Page + surface */
+  --color-background:        var(--color-n-10);   /* page bg */
+  --color-on-background:     var(--color-n-95);
+  --color-surface:           var(--color-n-00);   /* card bg */
+  --color-on-surface:        var(--color-n-95);   /* card text */
+  --color-on-surface-varient: var(--color-n-60);  /* card muted text */
+
+  /* Background variants */
+  --color-bg-varient-1:      var(--color-primary-5);
+  --color-bg-varient-2:      var(--color-primary-10);
+  --color-on-bg-varient-2:   var(--color-primary-90);
+
+  /* Surface variants — pre-approved tinted card backgrounds */
+  --color-surface-varient-1:  var(--color-sepia-05);
+  --color-surface-varient-2:  var(--color-yellow-02);
+  --color-surface-varient-3:  var(--color-n-05);
+  --color-surface-varient-4:  var(--color-n-10);
+  --color-surface-varient-5:  var(--color-primary-90);
+  --color-surface-varient-6:  var(--color-primary-50);
+  --color-surface-varient-7:  var(--color-primary-85);
+  --color-surface-varient-8:  var(--color-yellow-02);
+  --color-surface-varient-9:  var(--color-n-00);
+  --color-surface-varient-10: var(--color-green-04);
+  --color-surface-varient-11: var(--color-green-04);
+  --color-surface-varient-12: var(--color-primary-5);
+  --color-surface-varient-13: var(--color-sepia-80);
+  --color-surface-varient-14: var(--color-primary-50);
+  --color-surface-varient-15: var(--color-green-04);
+  --color-surface-varient-16: rgba(98, 200, 223, 0.2);   /* primary-50 @ 20% */
+  --color-surface-varient-17: rgba(213, 111, 98, 0.2);   /* #D56F62 @ 20% */
+
+  /* On-surface coloured text (Spine's text-on-tinted-card colours) */
+  --color-on-surface-blue:    var(--color-primary-50);
+  --color-on-surface-blue-2:  var(--color-primary-70);
+  --color-on-surface-blue-3:  var(--color-primary-85);
+  --color-on-surface-green:   var(--color-green-02);
+  --color-on-surface-green-2: var(--color-green-03);
+  --color-on-surface-green-3: var(--color-green-03);
+  --color-on-surface-green-4: var(--color-green-04);
+  --color-on-surface-red:     var(--color-red);
+  --color-on-surface-yellow:  var(--color-yellow);
+  --color-on-surface-sepia:   var(--color-sepia-80);
+
+  /* On-background surface variants — the "5 levels of muted text" */
+  --color-on-bg-surface-1: var(--color-n-70);
+  --color-on-bg-surface-2: var(--color-n-50);
+  --color-on-bg-surface-3: var(--color-n-40);
+  --color-on-bg-surface-4: var(--color-n-30);
+  --color-on-bg-surface-5: var(--color-n-10);
+
+  /* Inverse */
+  --color-inverse:        var(--color-n-80);
+  --color-on-inverse:     var(--color-n-00);
+  --color-inverse-primary: var(--color-primary-50);
+
+  /* Dividers, outlines, links */
+  --color-divider:        var(--color-n-10);
+  --color-outline:        var(--color-n-15);
+  --color-outline-2:      var(--color-n-15);
+  --color-on-link:        var(--color-link);
+
+  /* Tag */
+  --color-on-tag: #4A4D4E;   /* CONFIRMED from Spine doc */
+
+  /* Backdrop overlays (for modals, dialogs) */
+  --color-backdrop-80: rgba(0, 0, 0, 0.8);
+  --color-backdrop-50: rgba(0, 0, 0, 0.5);
+  --color-backdrop-10: rgba(0, 0, 0, 0.1);
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY
+     Roboto throughout. Weights: 400 Regular, 500 Medium, 700 Bold.
+     Format: --font-{token}: weight size/line-height family;
+     ---------------------------------------------------------- */
+  --font-family-base: 'Roboto', system-ui, sans-serif;
+
+  /* Titles */
+  --font-heading-1: 400 36px/43px var(--font-family-base);  /* title-36m */
+  --font-heading-2: 400 28px/34px var(--font-family-base);  /* TBD — sample-derived */
+  --font-heading-3: 500 24px/29px var(--font-family-base);  /* TBD — sample-derived */
+  --font-heading-4: 500 20px/24px var(--font-family-base);
+  --font-heading-5: 500 18px/22px var(--font-family-base);
+  --font-heading-6: 700 16px/19px var(--font-family-base);
+  --font-heading-7: 700 14px/17px var(--font-family-base);
+
+  /* Body */
+  --font-body-large: 400 16px/19px var(--font-family-base);
+  --font-body-small: 400 14px/17px var(--font-family-base);
+
+  /* Subtext */
+  --font-subtext-1: 400 12px/14px var(--font-family-base);
+  --font-subtext-2: 500 12px/14px var(--font-family-base);
+
+  /* Small text */
+  --font-small-text-1: 400 10px/12px var(--font-family-base);
+  --font-small-text-2: 500 10px/12px var(--font-family-base);
+  --font-small-text-3: 700 10px/12px var(--font-family-base);
+  --font-very-small:   400 8px/10px  var(--font-family-base);
+
+  /* Special case — buttons */
+  --font-button-large: 500 14px/17px var(--font-family-base);
+  --font-button-small: 500 12px/14px var(--font-family-base);
+
+  /* ----------------------------------------------------------
+     SPACING (from your memory: 4 / 8 / 16 / 24, extended)
+     ---------------------------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* ----------------------------------------------------------
+     RADIUS
+     Card = 8px (your memory). Other values educated defaults.
+     Designer can override during design review later.
+     ---------------------------------------------------------- */
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   8px;    /* default card */
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-pill: 999px;
+
+  /* ----------------------------------------------------------
+     ELEVATION (TBD — Spine doc didn't show shadows)
+     Web app needs some affordance on hover/focus; using soft defaults.
+     ---------------------------------------------------------- */
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-3: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* ----------------------------------------------------------
+     MOTION
+     Conservative defaults; revise during design review.
+     ---------------------------------------------------------- */
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --motion-slow: 320ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ============================================================
+   Type utility classes — one per Spine token
+   Use these directly in markup; never re-declare sizes inline.
+   ============================================================ */
+.t-heading-1   { font: var(--font-heading-1);   color: var(--color-on-surface); }
+.t-heading-2   { font: var(--font-heading-2);   color: var(--color-on-surface); }
+.t-heading-3   { font: var(--font-heading-3);   color: var(--color-on-surface); }
+.t-heading-4   { font: var(--font-heading-4);   color: var(--color-on-surface); }
+.t-heading-5   { font: var(--font-heading-5);   color: var(--color-on-surface); }
+.t-heading-6   { font: var(--font-heading-6);   color: var(--color-on-surface); }
+.t-heading-7   { font: var(--font-heading-7);   color: var(--color-on-surface); }
+.t-body-large  { font: var(--font-body-large);  color: var(--color-on-surface); }
+.t-body-small  { font: var(--font-body-small);  color: var(--color-on-surface); }
+.t-subtext-1   { font: var(--font-subtext-1);   color: var(--color-on-surface-varient); }
+.t-subtext-2   { font: var(--font-subtext-2);   color: var(--color-on-surface-varient); }
+.t-small-1     { font: var(--font-small-text-1); color: var(--color-on-surface-varient); }
+.t-small-2     { font: var(--font-small-text-2); color: var(--color-on-surface-varient); }
+.t-small-3     { font: var(--font-small-text-3); color: var(--color-on-surface-varient); letter-spacing: 0.5px; text-transform: uppercase; }
+.t-very-small  { font: var(--font-very-small);  color: var(--color-on-surface-varient); }
+.t-button-large { font: var(--font-button-large); }
+.t-button-small { font: var(--font-button-small); }
